@@ -18,6 +18,4 @@ RSpec.describe Table do
 			expect(customizable_object.width).to eq(6)
 		end
 	end
-
-	
 end
