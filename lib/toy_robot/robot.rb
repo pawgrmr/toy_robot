@@ -1,4 +1,5 @@
 require_relative './table'
+require_relative './compass'
 
 class Robot
  attr_reader :table, :x, :y, :facing, :compass
@@ -35,6 +36,10 @@ class Robot
 			shifted_index = 1
 		end
 		@facing = compass.rotate(shifted_index)[idx]
+	end
+
+	def report
+		p "Robot is placed at x: #{@x}, y: #{@y}, facing: #{@facing}"
 	end
 	
 	# def rotate(direction)

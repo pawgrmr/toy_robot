@@ -53,9 +53,14 @@ RSpec.describe Robot do
 			robot.rotate('right')
 			expect(robot.facing).to eq("south")
 		end
-
 	end
 
+	describe "#report" do
+		it "reports its position" do
+			robot.place(0, 0, "north")
+			expect(robot.report).to eq("Robot is placed at x: 0, y: 0, facing: north") 
+		end
+	end
 end
 
 # if 0, 0 north -- 0, 1 north 
