@@ -1,8 +1,8 @@
 class Table
-	attr_accessor :width, :height
+	attr_accessor :x, :y
 	def initialize(width, height)
-		@width = width
-		@height = height
+		@x = width - 1 # absorbed coordinates into Table class. 
+		@y = height - 1
 	end
 
 end

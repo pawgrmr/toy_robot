@@ -4,18 +4,18 @@ RSpec.describe Table do
 	describe '#initialize' do
 		subject = Table.new(5, 5)
 
-		it "has a width" do
-			expect(subject.width).to eq(5)
+		it "has a coordinate x" do
+			expect(subject.x).to eq(4)
 		end
 
-		it "has a height" do
-			expect(subject.height).to eq(5)
+		it "has a coordinate y" do
+			expect(subject.y).to eq(4)
 		end
 
 		it 'has customizable height and width' do
-			customizable_object = Table.new(6, 6)
-			expect(customizable_object.height).to eq(6)
-			expect(customizable_object.width).to eq(6)
+			customizable_table = Table.new(6, 6)
+			expect(customizable_table.x).to eq(5)
+			expect(customizable_table.y).to eq(5)
 		end
 	end
 end
