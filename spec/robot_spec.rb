@@ -25,12 +25,15 @@ RSpec.describe Robot do
 		end
 	end
 
-	# describe "#move" do
-	# 	it 'moves from (0, 0 north) to (0, 1 north)'
-	# 		robot.place(0, 0, "north") 
-	# 		expect(robot.move).to eq
-	# 	end
-	# end
+	describe "#move" do
+		it 'moves from (0, 0 north) to (0, 1 north)' do
+			robot.place(0, 0, "north") 
+			robot.move()
+			expect(robot.x).to eq(0)
+			expect(robot.y).to eq(1)
+			expect(robot.facing).to eq("north")
+		end
+	end
 end
 
 # if 0, 0 north -- 0, 1 north 

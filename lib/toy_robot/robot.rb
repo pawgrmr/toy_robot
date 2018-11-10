@@ -15,6 +15,14 @@ class Robot
  end
 
 # Move forward
-
+ def move
+ 	case facing
+ 	when "north" then @y =+ 1
+ 	when "east" then @x =+ 1
+ 	when "south" then @y =- 1
+ 	when "west" then @y =- 1
+ 	end
+ end
+ 
 # Rotate
 end
