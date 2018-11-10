@@ -28,6 +28,10 @@ RSpec.describe Robot do
 		it 'has facing' do
 			expect(robot.facing).to eq("west")
 		end
+
+		it 'has been placed' do
+			expect(robot.placed).to eq(true)
+		end
 	end
 
 	describe "#move" do

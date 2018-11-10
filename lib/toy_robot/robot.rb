@@ -2,7 +2,7 @@ require_relative './table'
 require_relative './compass'
 
 class Robot
- attr_reader :table, :x, :y, :facing, :compass
+ attr_reader :table, :x, :y, :facing, :compass, :placed
 
  def initialize
  	@table = Table.new(5, 5)
@@ -11,9 +11,12 @@ class Robot
 # Place
 
  def place(x, y, facing)
+ 	if in_boundary?(x, y)
  	@x = x
  	@y = y
  	@facing = facing
+ 	@placed = true
+ 	end
  end
 
 # Move forward
@@ -50,5 +53,11 @@ class Robot
 	# 	# rotate - x.rotate(shifted_index)[idx]
 	# 	@facing = compass.rotate(shifted_index)[idx]
 	# end
+
+	private
+
+	def in_boundary?(x ,y)
+		x.between?(0, 4) && y.between?(0, 4)
+	end
 
 end
