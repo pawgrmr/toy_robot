@@ -11,16 +11,17 @@ class Robot
 # Place
 
  def place(x, y, facing)
- 	if in_boundary?(x, y)
+ 	if in_boundary?(x, y) #if in_boundary? => means if it is true 
  	@x = x
  	@y = y
  	@facing = facing
- 	@placed = true
+ 	@placed = true 
  	end
  end
 
 # Move forward
  def move
+ 	return announcement unless placed
  	case facing
  	when "north" then @y =+ 1
  	when "east" then @x =+ 1
@@ -31,19 +32,20 @@ class Robot
 
 # Rotate
 
-	def rotate(direction)
-		idx = compass.index(facing)
+  def rotate(direction)
+  	return announcement unless placed
+	idx = compass.index(facing)
 		if direction == "left"
 			shifted_index = -1
 		else direction == "right"
 			shifted_index = 1
 		end
 		@facing = compass.rotate(shifted_index)[idx]
-	end
+  end
 
-	def report
+  def report
 		p "Robot is placed at x: #{@x}, y: #{@y}, facing: #{@facing}"
-	end
+  end
 	
 	# def rotate(direction)
 	# 	# find index of initial facing
@@ -57,7 +59,12 @@ class Robot
 	private
 
 	def in_boundary?(x ,y)
-		x.between?(0, 4) && y.between?(0, 4)
+		# x.between?(0, 4) && y.between?(0, 4)
+		table.x.include?(x) && table.y.include?(y)
+	end
+
+	def announcement
+		p "ROBOT NOT PLACED!"
 	end
 
 end
