@@ -8,6 +8,11 @@ RSpec.describe Robot do
 			expect(subject.table.x).to eq([0,1,2,3,4])
 			expect(subject.table.y).to eq([0,1,2,3,4])
 		end
+
+		it 'creates a compass with north south east west' do
+			expect(robot.compass.class).to be(Array)
+			expect(robot.compass).to eq(["north", "east", "south", "west"]) 
+		end
 	end
 
 	describe "#place" do
@@ -34,6 +39,23 @@ RSpec.describe Robot do
 			expect(robot.facing).to eq("north")
 		end
 	end
+
+	describe "#rotate" do
+		it "rotates from north to west when (left)" do
+			robot.place(0, 0, "north") 
+			robot.rotate('left')
+			expect(robot.facing).to eq("west")
+		end
+
+		it "rotates from north to east when (right)" do
+			robot.place(0, 0, "north") 
+			robot.rotate('right')
+			robot.rotate('right')
+			expect(robot.facing).to eq("south")
+		end
+
+	end
+
 end
 
 # if 0, 0 north -- 0, 1 north 
